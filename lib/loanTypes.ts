@@ -17,8 +17,8 @@ export const LOAN_TYPES: Record<LoanType, LoanTheme> = {
     heroDescription:
       "Estimate monthly car payments based on loan amount, interest rate, and loan term.",
     backgroundClassName:
-      "bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.22),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(147,197,253,0.14),transparent_28%),linear-gradient(to_bottom_right,#09090b,#111827,#0f172a)]",
-    accentClassName: "from-blue-400/20 to-sky-300/10",
+      "bg-[linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000')] bg-cover bg-center",
+    accentClassName: "",
   },
 
   boat: {
@@ -26,10 +26,10 @@ export const LOAN_TYPES: Record<LoanType, LoanTheme> = {
     routeBase: "/boat-payment",
     heroTitle: "Boat payment calculator",
     heroDescription:
-      "Estimate monthly boat payments with a dark marine-inspired calculator layout.",
+      "Estimate monthly boat payments with a marine-style calculator.",
     backgroundClassName:
-      "bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.20),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.14),transparent_28%),linear-gradient(to_bottom_right,#04131c,#082032,#0f172a)]",
-    accentClassName: "from-cyan-400/20 to-sky-300/10",
+      "bg-[linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.85)),url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=2000')] bg-cover bg-center",
+    accentClassName: "",
   },
 
   rv: {
@@ -37,10 +37,10 @@ export const LOAN_TYPES: Record<LoanType, LoanTheme> = {
     routeBase: "/rv-payment",
     heroTitle: "RV payment calculator",
     heroDescription:
-      "Estimate monthly RV payments with pricing, term, and interest rate inputs.",
+      "Estimate monthly RV payments for road trips and long-term travel.",
     backgroundClassName:
-      "bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(251,191,36,0.12),transparent_28%),linear-gradient(to_bottom_right,#120d06,#1f2937,#111827)]",
-    accentClassName: "from-amber-400/20 to-orange-300/10",
+      "bg-[linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.85)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2000')] bg-cover bg-center",
+    accentClassName: "",
   },
 };
 
