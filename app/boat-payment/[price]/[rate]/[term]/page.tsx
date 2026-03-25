@@ -4,13 +4,13 @@ import JsonLd from "@/app/components/JsonLd";
 import PaymentBreakdown from "@/app/components/PaymentBreakdown";
 import PaymentLinks from "@/app/components/PaymentLinks";
 import PaymentSummary from "@/app/components/PaymentSummary";
-import SiteShell from "@/app/components/SiteShell";
 import {
   calculateLoanPayment,
   clamp,
   formatCurrency,
   toNumber,
 } from "@/lib/loan";
+import { LOAN_TYPES } from "@/lib/loanTypes";
 import { SITE_URL } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
@@ -19,7 +19,9 @@ type PageProps = {
   params: Promise<{ price: string; rate: string; term: string }>;
 };
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { price, rate, term } = await params;
   const loanAmount = clamp(toNumber(price), 10000, 500000);
   const apr = clamp(toNumber(rate), 0, 25);
@@ -43,6 +45,8 @@ export default async function BoatPaymentPage({ params }: PageProps) {
   const apr = clamp(toNumber(rate), 0, 25);
   const months = clamp(toNumber(term), 12, 240);
 
+  const theme = LOAN_TYPES.boat;
+
   const { monthlyPayment, totalPaid, totalInterest } = calculateLoanPayment(
     loanAmount,
     apr,
@@ -59,7 +63,12 @@ export default async function BoatPaymentPage({ params }: PageProps) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Boat Payment", item: `${SITE_URL}/boat-payment/${loanAmount}/${apr}/${months}` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Boat Payment",
+        item: `${SITE_URL}/boat-payment/${loanAmount}/${apr}/${months}`,
+      },
     ],
   };
 
@@ -83,47 +92,79 @@ export default async function BoatPaymentPage({ params }: PageProps) {
       <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={faqJsonLd} />
 
-      <SiteShell>
-        <div className="mb-8 text-sm text-neutral-400">
-          <Link href="/" className="hover:text-white">Home</Link>
-          <span className="mx-2">/</span>
-          <span>Boat Payment</span>
+      <main className={`min-h-screen text-white ${theme.backgroundClassName}`}>
+        <div className="border-b border-white/10 bg-black/20">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 md:px-6">
+            <Link href="/" className="text-sm font-semibold tracking-tight">
+              Payment Calculator
+            </Link>
+
+            <div className="flex items-center gap-5 text-sm text-neutral-300">
+              <Link href="/car-payment/50000/6/72" className="hover:text-white">
+                Car
+              </Link>
+              <Link href="/boat-payment/70000/7/120" className="hover:text-white">
+                Boat
+              </Link>
+              <Link href="/rv-payment/90000/7/180" className="hover:text-white">
+                RV
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <section className="rounded-2xl border border-white/10 bg-black/30 p-8 shadow-sm">
-          <h1 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
-            {priceLabel} Boat Payment at {apr}% for {months} Months
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg text-neutral-300">
-            The estimated monthly payment on a <strong>{priceLabel}</strong> boat loan at <strong>{apr}% APR</strong> for <strong>{months} months</strong> is about <strong>{monthlyLabel}</strong>.
-          </p>
-        </section>
+        <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
+          <div className="mb-8 text-sm text-neutral-300">
+            <Link href="/" className="hover:text-white">
+              Home
+            </Link>
+            <span className="mx-2">/</span>
+            <span>Boat Payment</span>
+          </div>
 
-        <PaymentSummary
-          items={[
-            { label: "Monthly payment", value: monthlyLabel },
-            { label: "Loan amount", value: priceLabel },
-            { label: "Total paid", value: totalPaidLabel },
-            { label: "Interest paid", value: interestLabel },
-          ]}
-        />
+          <section className="rounded-2xl border border-white/10 bg-black/30 p-8 shadow-sm backdrop-blur-sm">
+            <h1 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
+              {priceLabel} Boat Payment at {apr}% for {months} Months
+            </h1>
+            <p className="mt-4 max-w-3xl text-lg text-neutral-200">
+              The estimated monthly payment on a <strong>{priceLabel}</strong>{" "}
+              boat loan at <strong>{apr}% APR</strong> for{" "}
+              <strong>{months} months</strong> is about{" "}
+              <strong>{monthlyLabel}</strong>.
+            </p>
+          </section>
 
-        <section className="mt-8 grid gap-6 lg:grid-cols-[1.4fr_0.9fr]">
-          <PaymentBreakdown
-            title="Boat loan breakdown"
-            rows={[
-              { label: "Loan amount", value: priceLabel },
-              { label: "APR", value: `${apr}%` },
-              { label: "Term", value: `${months} months` },
+          <PaymentSummary
+            items={[
               { label: "Monthly payment", value: monthlyLabel },
+              { label: "Loan amount", value: priceLabel },
               { label: "Total paid", value: totalPaidLabel },
-              { label: "Total interest", value: interestLabel },
+              { label: "Interest paid", value: interestLabel },
             ]}
           />
 
-          <PaymentLinks type="boat" amount={loanAmount} rate={apr} term={months} />
-        </section>
-      </SiteShell>
+          <section className="mt-8 grid gap-6 lg:grid-cols-[1.4fr_0.9fr]">
+            <PaymentBreakdown
+              title="Boat loan breakdown"
+              rows={[
+                { label: "Loan amount", value: priceLabel },
+                { label: "APR", value: `${apr}%` },
+                { label: "Term", value: `${months} months` },
+                { label: "Monthly payment", value: monthlyLabel },
+                { label: "Total paid", value: totalPaidLabel },
+                { label: "Total interest", value: interestLabel },
+              ]}
+            />
+
+            <PaymentLinks
+              type="boat"
+              amount={loanAmount}
+              rate={apr}
+              term={months}
+            />
+          </section>
+        </div>
+      </main>
     </>
   );
 }
