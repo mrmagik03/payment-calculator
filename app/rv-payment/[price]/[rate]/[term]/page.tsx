@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
-import { calculateLoanPayment, formatMoney, toNumber } from "@/lib/loan";
+import { calculateLoanPayment, formatCurrency, toNumber } from "@/lib/loan";
 import { LOAN_TYPES } from "@/lib/loanTypes";
 
 type PageProps = {
