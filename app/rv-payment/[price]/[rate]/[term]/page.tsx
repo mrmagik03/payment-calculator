@@ -31,8 +31,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${formatMoney(loanAmount)} RV Payment at ${apr}% for ${months} Months`,
-    description: `Estimate the monthly RV payment for ${formatMoney(
+    title: `${formatCurrency(loanAmount)} RV Payment at ${apr}% for ${months} Months`,
+    description: `Estimate the monthly RV payment for ${formatCurrency(
       loanAmount
     )} financed at ${apr}% APR for ${months} months.`,
     alternates: {
@@ -61,12 +61,12 @@ export default async function RvPaymentPage({ params }: PageProps) {
     mainEntity: [
       {
         "@type": "Question",
-        name: `What is the payment on ${formatMoney(
+        name: `What is the payment on ${formatCurrency(
           loanAmount
         )} at ${apr}% for ${months} months?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `The estimated monthly RV payment is ${formatMoney(
+          text: `The estimated monthly RV payment is ${formatCurrency(
             result.monthlyPayment
           )}.`,
         },
@@ -110,7 +110,7 @@ export default async function RvPaymentPage({ params }: PageProps) {
 
           <section className="rounded-2xl border border-white/10 bg-black/30 p-8 shadow-sm backdrop-blur-sm">
             <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
-              {formatMoney(loanAmount)} RV Payment at {apr}% for {months} Months
+              {formatCurrency(loanAmount)} RV Payment at {apr}% for {months} Months
             </h1>
 
             <p className="mt-4 max-w-3xl text-lg text-neutral-200">
@@ -123,21 +123,21 @@ export default async function RvPaymentPage({ params }: PageProps) {
             <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
               <p className="text-sm text-neutral-300">Monthly payment</p>
               <p className="mt-2 text-3xl font-semibold">
-                {formatMoney(result.monthlyPayment)}
+                {formatCurrency(result.monthlyPayment)}
               </p>
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
               <p className="text-sm text-neutral-300">Total paid</p>
               <p className="mt-2 text-3xl font-semibold">
-                {formatMoney(result.totalPaid)}
+                {formatCurrency(result.totalPaid)}
               </p>
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
               <p className="text-sm text-neutral-300">Total interest</p>
               <p className="mt-2 text-3xl font-semibold">
-                {formatMoney(result.totalInterest)}
+                {formatCurrency(result.totalInterest)}
               </p>
             </div>
           </section>
@@ -161,7 +161,7 @@ export default async function RvPaymentPage({ params }: PageProps) {
                     Loan amount
                   </div>
                   <div className="px-4 py-3 text-sm font-medium">
-                    {formatMoney(loanAmount)}
+                    {formatCurrency(loanAmount)}
                   </div>
                 </div>
 
@@ -184,7 +184,7 @@ export default async function RvPaymentPage({ params }: PageProps) {
                     Monthly payment
                   </div>
                   <div className="px-4 py-3 text-sm font-medium">
-                    {formatMoney(result.monthlyPayment)}
+                    {formatCurrency(result.monthlyPayment)}
                   </div>
                 </div>
 
@@ -193,7 +193,7 @@ export default async function RvPaymentPage({ params }: PageProps) {
                     Total paid
                   </div>
                   <div className="px-4 py-3 text-sm font-medium">
-                    {formatMoney(result.totalPaid)}
+                    {formatCurrency(result.totalPaid)}
                   </div>
                 </div>
 
@@ -202,7 +202,7 @@ export default async function RvPaymentPage({ params }: PageProps) {
                     Total interest
                   </div>
                   <div className="px-4 py-3 text-sm font-medium">
-                    {formatMoney(result.totalInterest)}
+                    {formatCurrency(result.totalInterest)}
                   </div>
                 </div>
               </div>
