@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import JsonLd from "@/components/JsonLd";
 import { calculateLoanPayment, formatCurrency, toNumber } from "@/lib/loan";
 import { LOAN_TYPES } from "@/lib/loanTypes";
 
@@ -76,10 +75,7 @@ export default async function RvPaymentPage({ params }: PageProps) {
   };
 
   return (
-    <>
-      <JsonLd data={faqJsonLd} />
-
-      <main className={`min-h-screen text-white ${theme.backgroundClassName}`}>
+     <main className={`min-h-screen text-white ${theme.backgroundClassName}`}>
         <div className="border-b border-white/10 bg-black/20">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 md:px-6">
             <Link href="/" className="text-sm font-semibold tracking-tight">
@@ -239,6 +235,5 @@ export default async function RvPaymentPage({ params }: PageProps) {
           </section>
         </div>
       </main>
-    </>
-  );
+    );
 }
