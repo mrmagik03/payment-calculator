@@ -12,10 +12,10 @@ export default function LinkCard({
   return (
     <Link
       href={href}
-      className="block rounded-xl border border-white/10 bg-black/30 p-4 transition hover:border-white/20 hover:bg-black/40"
+      className="block rounded-xl border border-white/25 bg-black/40 p-4 transition hover:border-white/40 hover:bg-black/50"
     >
       <div className="text-base font-semibold text-white">{title}</div>
-      <p className="mt-2 text-sm leading-6 text-neutral-300">{description}</p>
+      <p className="mt-2 text-sm leading-6 text-neutral-100">{description}</p>
     </Link>
   );
 }

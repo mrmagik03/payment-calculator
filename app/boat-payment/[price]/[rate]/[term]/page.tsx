@@ -92,14 +92,14 @@ export default async function BoatPaymentPage({ params }: PageProps) {
       <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={faqJsonLd} />
 
-      <main className={`min-h-screen text-white ${theme.backgroundClassName}`}>
-        <div className="border-b border-white/10 bg-black/20">
+      <main id="main-content" className={`min-h-screen text-white ${theme.backgroundClassName}`}>
+        <div className="border-b border-white/20 bg-black/35">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 md:px-6">
             <Link href="/" className="text-sm font-semibold tracking-tight">
               Payment Calculator
             </Link>
 
-            <div className="flex items-center gap-5 text-sm text-neutral-300">
+            <nav className="flex items-center gap-5 text-sm text-neutral-100">
               <Link href="/car-payment/50000/6/72" className="hover:text-white">
                 Car
               </Link>
@@ -109,12 +109,12 @@ export default async function BoatPaymentPage({ params }: PageProps) {
               <Link href="/rv-payment/90000/7/180" className="hover:text-white">
                 RV
               </Link>
-            </div>
+            </nav>
           </div>
         </div>
 
         <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
-          <div className="mb-8 text-sm text-neutral-300">
+          <div className="mb-8 text-sm text-neutral-100">
             <Link href="/" className="hover:text-white">
               Home
             </Link>
@@ -122,11 +122,11 @@ export default async function BoatPaymentPage({ params }: PageProps) {
             <span>Boat Payment</span>
           </div>
 
-          <section className="rounded-2xl border border-white/10 bg-black/30 p-8 shadow-sm backdrop-blur-sm">
+          <section className="rounded-2xl border border-white/25 bg-black/40 p-8 shadow-sm backdrop-blur-sm">
             <h1 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
               {priceLabel} Boat Payment at {apr}% for {months} Months
             </h1>
-            <p className="mt-4 max-w-3xl text-lg text-neutral-200">
+            <p className="mt-4 max-w-3xl text-lg text-neutral-100">
               The estimated monthly payment on a <strong>{priceLabel}</strong>{" "}
               boat loan at <strong>{apr}% APR</strong> for{" "}
               <strong>{months} months</strong> is about{" "}
