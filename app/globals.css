@@ -22,5 +22,37 @@ body {
 }
 
 a {
-  text-decoration: none;
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: rgba(226, 232, 240, 0.9);
+}
+
+a:hover {
+  text-decoration-color: rgba(255, 255, 255, 1);
+}
+
+:where(a, button, input, select, textarea, [role="button"], [tabindex]):focus-visible {
+  outline: 3px solid #67e8f9;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px rgba(5, 7, 13, 0.95);
+  border-radius: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem;
+  z-index: 1000;
+  transform: translateY(-200%);
+  background: #f8fafc;
+  color: #020617;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
 }

@@ -93,24 +93,24 @@ function LinkCard({
   return (
     <Link
       href={href}
-      className="block rounded-xl border border-white/10 bg-black/25 p-5 backdrop-blur-sm transition hover:bg-black/35"
+      className="block rounded-xl border border-white/25 bg-black/35 p-5 backdrop-blur-sm transition hover:bg-black/45"
     >
       <div className="text-xl font-semibold text-white">{title}</div>
-      <p className="mt-3 text-sm leading-6 text-neutral-200">{text}</p>
+      <p className="mt-3 text-sm leading-6 text-neutral-100">{text}</p>
     </Link>
   );
 }
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-neutral-950 text-white">
-      <div className="border-b border-white/10 bg-black/20">
+    <main id="main-content" className="min-h-screen bg-neutral-950 text-white">
+      <div className="border-b border-white/20 bg-black/35">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 md:px-6">
           <Link href="/" className="text-sm font-semibold tracking-tight">
             Payment Calculator
           </Link>
 
-          <div className="flex items-center gap-5 text-sm text-neutral-300">
+          <nav className="flex items-center gap-5 text-sm text-neutral-100">
             <Link href="/car-payment/50000/6/72" className="hover:text-white">
               Car
             </Link>
@@ -120,17 +120,17 @@ export default function HomePage() {
             <Link href="/rv-payment/90000/7/180" className="hover:text-white">
               RV
             </Link>
-          </div>
+          </nav>
         </div>
       </div>
 
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
-        <section className="rounded-2xl border border-white/10 bg-black/30 p-8 shadow-sm backdrop-blur-sm">
+        <section className="rounded-2xl border border-white/25 bg-black/40 p-8 shadow-sm backdrop-blur-sm">
           <h1 className="max-w-5xl text-4xl font-bold tracking-tight md:text-7xl">
             Payment calculators that answer the question fast
           </h1>
 
-          <p className="mt-5 max-w-3xl text-xl leading-9 text-neutral-200">
+          <p className="mt-5 max-w-3xl text-xl leading-9 text-neutral-100">
             Estimate car, boat, and RV loan payments with clean monthly payment,
             total cost, and interest breakdowns.
           </p>
@@ -141,11 +141,11 @@ export default function HomePage() {
             <Link
               key={card.href}
               href={card.href}
-              className={`rounded-2xl border border-white/10 p-6 shadow-sm transition hover:scale-[1.01] ${card.backgroundClassName}`}
+              className={`rounded-2xl border border-white/25 p-6 shadow-sm transition hover:scale-[1.01] ${card.backgroundClassName}`}
             >
               <div className="rounded-xl bg-black/25 p-4 backdrop-blur-sm">
                 <h2 className="text-2xl font-semibold">{card.title}</h2>
-                <p className="mt-3 text-sm leading-6 text-neutral-200">
+                <p className="mt-3 text-sm leading-6 text-neutral-100">
                   {card.description}
                 </p>
               </div>
@@ -154,7 +154,7 @@ export default function HomePage() {
         </section>
 
         <section className="mt-8 grid gap-6 lg:grid-cols-3">
-          <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
+          <div className="rounded-2xl border border-white/25 bg-black/40 p-6 backdrop-blur-sm">
             <h2 className="text-2xl font-semibold">Popular car payment pages</h2>
             <div className="mt-5 space-y-4">
               {popularCars.map((item) => (
@@ -168,7 +168,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
+          <div className="rounded-2xl border border-white/25 bg-black/40 p-6 backdrop-blur-sm">
             <h2 className="text-2xl font-semibold">Popular boat payment pages</h2>
             <div className="mt-5 space-y-4">
               {popularBoats.map((item) => (
@@ -182,7 +182,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
+          <div className="rounded-2xl border border-white/25 bg-black/40 p-6 backdrop-blur-sm">
             <h2 className="text-2xl font-semibold">Popular RV payment pages</h2>
             <div className="mt-5 space-y-4">
               {popularRvs.map((item) => (
@@ -195,6 +195,14 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+        </section>
+
+        <section className="mt-8 max-w-3xl rounded-2xl border border-white/25 bg-black/40 p-6 backdrop-blur-sm">
+          <h2 className="text-xl font-semibold">Related tools</h2>
+          <p className="mt-2 text-sm leading-6 text-neutral-100">
+            Looking for salary estimates too? Try{" "}
+            <a href="https://mysalarycalculator.co">My Salary Calculator</a>.
+          </p>
         </section>
       </div>
     </main>

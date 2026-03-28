@@ -40,9 +40,9 @@ export default function PaymentLinks({
   ];
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/30 p-6 shadow-sm">
+    <div className="rounded-2xl border border-white/25 bg-black/40 p-6 shadow-sm">
       <h2 className="text-2xl font-semibold text-white">Explore more payment pages</h2>
-      <p className="mt-3 max-w-2xl text-sm leading-6 text-neutral-300">
+      <p className="mt-3 max-w-2xl text-sm leading-6 text-neutral-100">
         Compare nearby payment scenarios to understand how loan amount, rate, and term change your monthly cost.
       </p>
 
@@ -50,6 +50,14 @@ export default function PaymentLinks({
         {links.map((link) => (
           <LinkCard key={link.href} href={link.href} title={link.title} description={link.description} />
         ))}
+      </div>
+
+      <div className="mt-6 rounded-xl border border-white/25 bg-black/50 p-4">
+        <h3 className="text-base font-semibold text-white">Related tools</h3>
+        <p className="mt-2 text-sm text-neutral-100">
+          For pay and income planning, visit{" "}
+          <a href="https://mysalarycalculator.co">My Salary Calculator</a>.
+        </p>
       </div>
     </div>
   );

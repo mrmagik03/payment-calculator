@@ -75,14 +75,14 @@ export default async function RvPaymentPage({ params }: PageProps) {
   };
 
   return (
-     <main className={`min-h-screen text-white ${theme.backgroundClassName}`}>
-        <div className="border-b border-white/10 bg-black/20">
+     <main id="main-content" className={`min-h-screen text-white ${theme.backgroundClassName}`}>
+        <div className="border-b border-white/20 bg-black/35">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 md:px-6">
             <Link href="/" className="text-sm font-semibold tracking-tight">
               Payment Calculator
             </Link>
 
-            <div className="flex items-center gap-5 text-sm text-neutral-300">
+            <nav className="flex items-center gap-5 text-sm text-neutral-100">
               <Link href="/" className="hover:text-white">
                 Home
               </Link>
@@ -95,12 +95,12 @@ export default async function RvPaymentPage({ params }: PageProps) {
               <Link href="/rv-payment/90000/7/180" className="hover:text-white">
                 RV
               </Link>
-            </div>
+            </nav>
           </div>
         </div>
 
         <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
-          <div className="mb-8 text-sm text-neutral-300">
+          <div className="mb-8 text-sm text-neutral-100">
             <Link href="/" className="hover:text-white">
               Home
             </Link>
@@ -108,34 +108,34 @@ export default async function RvPaymentPage({ params }: PageProps) {
             <span>RV Payment</span>
           </div>
 
-          <section className="rounded-2xl border border-white/10 bg-black/30 p-8 shadow-sm backdrop-blur-sm">
+          <section className="rounded-2xl border border-white/25 bg-black/40 p-8 shadow-sm backdrop-blur-sm">
             <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
               {formatCurrency(loanAmount)} RV Payment at {apr}% for {months} Months
             </h1>
 
-            <p className="mt-4 max-w-3xl text-lg text-neutral-200">
+            <p className="mt-4 max-w-3xl text-lg text-neutral-100">
               Estimate your monthly RV payment, total paid over the life of the
               loan, and total interest cost.
             </p>
           </section>
 
           <section className="mt-8 grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
-              <p className="text-sm text-neutral-300">Monthly payment</p>
+            <div className="rounded-2xl border border-white/25 bg-black/40 p-6 backdrop-blur-sm">
+              <p className="text-sm text-neutral-100">Monthly payment</p>
               <p className="mt-2 text-3xl font-semibold">
                 {formatCurrency(result.monthlyPayment)}
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
-              <p className="text-sm text-neutral-300">Total paid</p>
+            <div className="rounded-2xl border border-white/25 bg-black/40 p-6 backdrop-blur-sm">
+              <p className="text-sm text-neutral-100">Total paid</p>
               <p className="mt-2 text-3xl font-semibold">
                 {formatCurrency(result.totalPaid)}
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
-              <p className="text-sm text-neutral-300">Total interest</p>
+            <div className="rounded-2xl border border-white/25 bg-black/40 p-6 backdrop-blur-sm">
+              <p className="text-sm text-neutral-100">Total interest</p>
               <p className="mt-2 text-3xl font-semibold">
                 {formatCurrency(result.totalInterest)}
               </p>
@@ -143,21 +143,21 @@ export default async function RvPaymentPage({ params }: PageProps) {
           </section>
 
           <section className="mt-8 grid gap-6 lg:grid-cols-[1.3fr_0.9fr]">
-            <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
+            <div className="rounded-2xl border border-white/25 bg-black/40 p-6 backdrop-blur-sm">
               <h2 className="text-2xl font-semibold">RV loan breakdown</h2>
 
-              <div className="mt-6 overflow-hidden rounded-xl border border-white/10">
-                <div className="grid grid-cols-2 border-b border-white/10 bg-black/30">
-                  <div className="px-4 py-3 text-sm font-medium text-neutral-200">
+              <div className="mt-6 overflow-hidden rounded-xl border border-white/25">
+                <div className="grid grid-cols-2 border-b border-white/25 bg-black/45">
+                  <div className="px-4 py-3 text-sm font-medium text-neutral-100">
                     Category
                   </div>
-                  <div className="px-4 py-3 text-sm font-medium text-neutral-200">
+                  <div className="px-4 py-3 text-sm font-medium text-neutral-100">
                     Amount
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 border-b border-white/10">
-                  <div className="px-4 py-3 text-sm text-neutral-300">
+                <div className="grid grid-cols-2 border-b border-white/25">
+                  <div className="px-4 py-3 text-sm text-neutral-100">
                     Loan amount
                   </div>
                   <div className="px-4 py-3 text-sm font-medium">
@@ -165,13 +165,13 @@ export default async function RvPaymentPage({ params }: PageProps) {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 border-b border-white/10">
-                  <div className="px-4 py-3 text-sm text-neutral-300">APR</div>
+                <div className="grid grid-cols-2 border-b border-white/25">
+                  <div className="px-4 py-3 text-sm text-neutral-100">APR</div>
                   <div className="px-4 py-3 text-sm font-medium">{apr}%</div>
                 </div>
 
-                <div className="grid grid-cols-2 border-b border-white/10">
-                  <div className="px-4 py-3 text-sm text-neutral-300">
+                <div className="grid grid-cols-2 border-b border-white/25">
+                  <div className="px-4 py-3 text-sm text-neutral-100">
                     Loan term
                   </div>
                   <div className="px-4 py-3 text-sm font-medium">
@@ -179,8 +179,8 @@ export default async function RvPaymentPage({ params }: PageProps) {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 border-b border-white/10">
-                  <div className="px-4 py-3 text-sm text-neutral-300">
+                <div className="grid grid-cols-2 border-b border-white/25">
+                  <div className="px-4 py-3 text-sm text-neutral-100">
                     Monthly payment
                   </div>
                   <div className="px-4 py-3 text-sm font-medium">
@@ -188,8 +188,8 @@ export default async function RvPaymentPage({ params }: PageProps) {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 border-b border-white/10">
-                  <div className="px-4 py-3 text-sm text-neutral-300">
+                <div className="grid grid-cols-2 border-b border-white/25">
+                  <div className="px-4 py-3 text-sm text-neutral-100">
                     Total paid
                   </div>
                   <div className="px-4 py-3 text-sm font-medium">
@@ -198,7 +198,7 @@ export default async function RvPaymentPage({ params }: PageProps) {
                 </div>
 
                 <div className="grid grid-cols-2">
-                  <div className="px-4 py-3 text-sm text-neutral-300">
+                  <div className="px-4 py-3 text-sm text-neutral-100">
                     Total interest
                   </div>
                   <div className="px-4 py-3 text-sm font-medium">
@@ -208,28 +208,36 @@ export default async function RvPaymentPage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
+            <div className="rounded-2xl border border-white/25 bg-black/40 p-6 backdrop-blur-sm">
               <h2 className="text-2xl font-semibold">Explore more calculators</h2>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
                 <Link
                   href="/car-payment/50000/6/72"
-                  className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-neutral-200 transition hover:bg-black/40"
+                  className="rounded-xl border border-white/25 bg-black/50 px-4 py-3 text-sm text-neutral-100 transition hover:bg-black/60"
                 >
                   Car payment example
                 </Link>
                 <Link
                   href="/boat-payment/70000/7/120"
-                  className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-neutral-200 transition hover:bg-black/40"
+                  className="rounded-xl border border-white/25 bg-black/50 px-4 py-3 text-sm text-neutral-100 transition hover:bg-black/60"
                 >
                   Boat payment example
                 </Link>
                 <Link
                   href="/rv-payment/90000/7/180"
-                  className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-neutral-200 transition hover:bg-black/40"
+                  className="rounded-xl border border-white/25 bg-black/50 px-4 py-3 text-sm text-neutral-100 transition hover:bg-black/60"
                 >
                   RV payment example
                 </Link>
+              </div>
+
+              <div className="mt-6 rounded-xl border border-white/25 bg-black/50 p-4">
+                <h3 className="text-base font-semibold">Related tools</h3>
+                <p className="mt-2 text-sm text-neutral-100">
+                  Compare paycheck and salary estimates with{" "}
+                  <a href="https://mysalarycalculator.co">My Salary Calculator</a>.
+                </p>
               </div>
             </div>
           </section>
